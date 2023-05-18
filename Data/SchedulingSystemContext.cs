@@ -8,6 +8,7 @@ namespace SchedulingSystem.Data
     {
 
         public DbSet<User> Users { get; set; } = null!;
+        public DbSet<Professional> Professionals { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlServer("Server=localhost,1433;Database=DbSchedulingSystem;User ID=sa;Password=1q2w3e4r@#$;TrustServerCertificate=true");
@@ -15,6 +16,7 @@ namespace SchedulingSystem.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserMap());
+            modelBuilder.ApplyConfiguration(new ProfessionalMap());
         }
     }
 }
